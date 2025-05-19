@@ -1,0 +1,33 @@
+type Budget {
+  id: ID!
+  amount: Float!
+  start_date: String!
+  end_date: String
+  category: Category!
+  user: User!
+}
+
+input BudgetInput {
+  amount: Float!
+  start_date: String!
+  end_date: String
+  categoryId: Int!
+}
+
+input UpdateBudgetInput {
+  id: Int!
+  amount: Float
+  start_date: String
+  end_date: String
+  categoryId: Int
+}
+
+type Query {
+  getBudgets: [Budget!]!
+}
+
+type Mutation {
+  createBudget(input: BudgetInput!): Budget!
+  updateBudget(input: UpdateBudgetInput!): Budget!
+  deleteBudget(id: Int!): Boolean!
+}

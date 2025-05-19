@@ -1,0 +1,26 @@
+type SavingsBudgetLink {
+  id: ID!
+  savings: Savings!
+  budget: Budget!
+}
+
+input SavingsBudgetLinkInput {
+  savingsId: Int!
+  budgetId: Int!
+}
+
+input UpdateSavingsBudgetLinkInput {
+  id: Int!
+  savingsId: Int
+  budgetId: Int
+}
+
+type Query {
+  getSavingsBudgetLinks: [SavingsBudgetLink!]!
+}
+
+type Mutation {
+  createSavingsBudgetLink(input: SavingsBudgetLinkInput!): SavingsBudgetLink!
+  updateSavingsBudgetLink(input: UpdateSavingsBudgetLinkInput!): SavingsBudgetLink!
+  deleteSavingsBudgetLink(id: Int!): Boolean!
+}

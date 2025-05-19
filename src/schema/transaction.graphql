@@ -1,0 +1,36 @@
+type Transaction {
+  id: ID!
+  description: String!
+  amount: Float!
+  date: String!
+  recurring: Boolean!
+  category: Category!
+  user: User!
+}
+
+input CreateTransactionInput {
+  description: String!
+  amount: Float!
+  date: String
+  recurring: Boolean
+  categoryId: ID
+}
+
+input UpdateTransactionInput {
+  id: ID!
+  description: String
+  amount: Float
+  date: String
+  recurring: Boolean
+  categoryId: ID
+}
+
+type Query {
+  getTransactions: [Transaction!]!
+}
+
+type Mutation {
+  createTransaction(input: CreateTransactionInput!): Transaction!
+  updateTransaction(input: UpdateTransactionInput!): Transaction!
+  deleteTransaction(id: ID!): Boolean!
+}

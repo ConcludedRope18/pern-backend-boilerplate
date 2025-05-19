@@ -2,8 +2,8 @@ const DataSource = require("typeorm").DataSource;
 const dataSource = new DataSource({
   type: process.env.TYPE,
   host: process.env.HOST,
-  port: process.env.PORT,
-  username: process.env.USERNAME,
+  port: parseInt(process.env.PORT),
+  username: process.env.DB_USERNAME,
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
   synchronize: false,

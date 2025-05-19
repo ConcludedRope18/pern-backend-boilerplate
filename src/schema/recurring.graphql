@@ -1,0 +1,34 @@
+type Recurring {
+  id: ID!
+  repeat_frequency: String!
+  next_date: String!
+  start_date: String!
+  active: Boolean!
+  transaction: Transaction!
+}
+
+input RecurringInput {
+  transactionId: Int!
+  repeat_frequency: String!
+  next_date: String!
+  start_date: String!
+  active: Boolean
+}
+
+input UpdateRecurringInput {
+  id: Int!
+  repeat_frequency: String
+  next_date: String
+  start_date: String
+  active: Boolean
+}
+
+type Query {
+  getRecurringForUser: [Recurring!]!
+}
+
+type Mutation {
+  createRecurring(input: RecurringInput!): Recurring!
+  updateRecurring(input: UpdateRecurringInput!): Recurring!
+  deleteRecurring(id: Int!): Boolean!
+}

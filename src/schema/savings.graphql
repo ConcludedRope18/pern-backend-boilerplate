@@ -1,0 +1,34 @@
+type Savings {
+  id: ID!
+  name: String!
+  target: Float!
+  deadline: String!
+  saved: Float!
+  user: User!
+  savingsBudgetLinks: [SavingsBudgetLink!]!
+}
+
+input SavingsInput {
+  name: String!
+  target: Float!
+  deadline: String!
+  saved: Float
+}
+
+input UpdateSavingsInput {
+  id: Int!
+  name: String
+  target: Float
+  deadline: String
+  saved: Float
+}
+
+type Query {
+  getSavings: [Savings!]!
+}
+
+type Mutation {
+  createSavings(input: SavingsInput!): Savings!
+  updateSavings(input: UpdateSavingsInput!): Savings!
+  deleteSavings(id: Int!): Boolean!
+}
