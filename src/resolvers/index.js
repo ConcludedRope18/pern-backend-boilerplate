@@ -5,6 +5,7 @@ const budgetResolver = require("./budgetResolver");
 const recurringResolver = require("./recurringResolver");
 const savingsResolver = require("./savingsResolver");
 const savingsBudgetLinkResolver = require("./savingsBudgetLinkResolver");
+const recurringAutomationResolver = require("./recurringAutomationResolver");
 
 const resolvers = {
   Query: {
@@ -25,6 +26,7 @@ const resolvers = {
     ...recurringResolver.Mutation,
     ...savingsResolver.Mutation,
     ...savingsBudgetLinkResolver.Mutation,
+    ...recurringAutomationResolver.Mutation,
   },
 };
 
